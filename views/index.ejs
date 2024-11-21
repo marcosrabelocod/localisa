@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <!-- Esse recurso se chama partials e permite comolocar trechos de codigo em outros arquivos para evitar tepetir codigos va na pasta views/partials para auterar-->
+    <head><%- include ('./partials/head.ejs')%>
+    <link rel="stylesheet" href="/public/css/style.css">
+    </head>
+<body class="bg-body-tertiary">
+    <header><%- include ('./partials/nav.ejs')%></header>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3>Mapa</h3>
+            </div>
+            <div id="map">
+                
+        </div>
+    </div>
+</body>
+<%- include ('./partials/footer.ejs')%>
+<script src="/public/js/mapa.js"></script>
+</html>

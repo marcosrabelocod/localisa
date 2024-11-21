@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <!-- Esse recurso se chama partials e permite comolocar trechos de codigo em outros arquivos para evitar tepetir codigos va na pasta views/partials para auterar-->
+    <head><%- include ('./partials/head.ejs')%></head>
+<body>
+    <header><%- include ('./partials/nav.ejs')%></header>
+    <div class="container">
+        <div class="card primeiro">
+            <div class="card-header">
+                <h1>Pesquisar</h1>
+            </div>
+            <form action="/pesquisar" method="post">
+                <div class="card-body">
+                    <input type="text" class="form-control" placeholder="Nome do local" name="nomeLocal">
+                    <br>
+                    <button  class="btn btn-primary">Pesquisar</button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="card">
+            <div class="card-header">
+                <h3>Locais</h3>
+            </div>
+            <div class="card-body">
+                <% dados.forEach(dado =>{ %>
+                    <a href="/local/<%= dado.Id%>"><p><%= dado.Nome%></p></a>
+                    <hr>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</body>
+
+<%- include ('./partials/footer.ejs')%>
+</html>

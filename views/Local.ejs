@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <!-- Esse recurso se chama partials e permite comolocar trechos de codigo em outros arquivos para evitar tepetir codigos va na pasta views/partials para auterar-->
+    <head><%- include ('./partials/head.ejs')%></head>
+<body class="bg-body-tertiary">
+    <header><%- include ('./partials/nav.ejs')%></header>
+    <div class="container">
+        <div class="card primeiro">
+            <div class="card-header">
+                <h3><%= nome %> <a class="btn btn-primary"  href="/contato/<%= id %>">+contato</a> <a class="btn btn-primary"  href="/registro/<%= id %>">+filho</a> <button class="btn btn-primary" onclick="openPopup('nome')"> alterar nome</button></h3>
+                    <dialog class="container popup" id="nome">
+                        <form action="/alterar" method="post">
+                            <input class="form-control" type="hidden" name="id" value="<%= id%>">
+                            <input class="form-control" type="hidden" name="coluna" value="nome">
+                            <p><input class="form-control" type="text" name="nome" id="Nome" placeholder="Nome"></p>
+                            <button class="btn btn-primary">enviar</button>
+                        </form>
+                        <button class="btn btn-secondary" onclick="closePopup('nome')">cancelar</button>
+                </dialog>
+            </div>
+
+
+            <div class="card-body">
+                <p><% if(origem > 0 ){ %>
+                    Origem: <a href="/local/<%= origem%>"><%= nomeorigem %></a> &nbsp; <% } %>
+                    <button class="btn btn-primary" onclick="openPopup('origem')"> alterar Origem</button>
+                </p>
+                
+                <dialog class="container popup" id="origem">
+                    <form action="/alterar" method="post">
+                        <input class="form-control" type="hidden" name="id" value="<%= id%>">
+                        <input class="form-control" type="hidden" name="coluna" value="origem" >
+                        <p><input class="form-control" type="text" name="origem" id="Origem" placeholder="Predio ao qual a localidade pertence"></p>
+                        <button class="btn btn-primary">enviar</button>
+                    </form>
+                        <button class="btn btn-secondary" onclick="closePopup('origem')">cancelar</button>
+                </dialog>
+
+                <p>Andar: <%= andar %>  &nbsp; <button class="btn btn-primary" onclick="openPopup('andar')"> alterar</button></p>
+                <dialog class="container popup" id="andar">
+                    <form action="/alterar" method="post">
+                        <input class="form-control" type="hidden" name="id" value="<%= id%>">
+                        <input class="form-control" type="hidden" name="coluna" value="andar" >
+                        <p><select class="form-select" name="andar">
+                            <option selected>Andar</option>
+                            <option value="10">Terreo</option>
+                            <option value="1">Primeiro</option>
+                            <option value="2">Segundo</option>
+                            <option value="3">Terceiro</option>
+                            <option value="4">Quarto</option>
+                            <option value="5">Quinto</option>
+                            <option value="6">Sexto</option>
+                            <option value="7">Setimo</option>
+                            <option value="8">Oitavo</option>
+                            <option value="9">Nono</option>
+                        </select></p>
+                        <button class="btn btn-primary">enviar</button>
+                    </form>
+                        <button class="btn btn-secondary" onclick="closePopup('andar')">cancelar</button>
+                </dialog>
+
+
+                <p>Tipo: <%= tipo %>  &nbsp; <button class="btn btn-primary" onclick="openPopup('tipo')"> alterar</button></p>
+                <dialog class="container popup" id="tipo">
+                    <form action="/alterar" method="post">
+                        <input class="form-control" type="hidden" name="id" value="<%= id%>">
+                        <input class="form-control" type="hidden" name="coluna" value="tipo" >
+                        <p><select class="form-select" name="tipo">
+                            <option selected> Tipo de Localidade</option>
+                            <option value="1">Administrativo</option>
+                            <option value="2">Saude</option>
+                            <option value="3">Aula</option>
+                            <option value="4">Portão</option>
+                            <option value="5">Alimentação</option>
+                            <option value="6">Biblioteca</option>
+                            <option value="7">Instituto</option>
+                            <option value="8">Laboratorio</option>
+                            <option value="10">Faculdade</option>
+                            <option value="9">Outro</option>
+                        </select></p>
+                        <button class="btn btn-primary">enviar</button>
+                    </form>
+                        <button class="btn btn-secondary" onclick="closePopup('tipo')">cancelar</button>
+                </dialog>
+
+
+                <p>Setor: <%= setor %>  &nbsp; <button class="btn btn-primary" onclick="openPopup('setor')"> alterar</button></p>
+                <dialog class="container popup" id="setor">
+                    <form action="/alterar" method="post">
+                        <input class="form-control" type="hidden" name="id" value="<%= id%>">
+                        <input class="form-control" type="hidden" name="coluna" value="setor" >
+                        <p><select class="form-select" name="setor">
+                            <option selected>Setor</option>
+                            <option value="1">Básico</option>
+                            <option value="2">Profissional</option>
+                            <option value="3">Saúde</option>
+                            <option value="4">Parque de Ciência e Tecnologia</option>
+                        </select></p>
+                        <button class="btn btn-primary">enviar</button>
+                    </form>
+                        <button class="btn btn-secondary" onclick="closePopup('setor')">cancelar</button>
+                </dialog>
+
+                <p>Portâo mais proximo: <%= portao %>  &nbsp; <button class="btn btn-primary" onclick="openPopup('portao')"> alterar</button></p>
+                <dialog class="container popup" id="portao">
+                    <form action="/alterar" method="post">
+                        <input class="form-control" type="hidden" name="id" value="<%= id%>">
+                        <input class="form-control" type="hidden" name="coluna" value="portao" >
+                        <p><select class="form-select" name="portao">
+                            <option selected>Potão</option>
+                            <option value="7">1</option>
+                            <option value="8">2</option>
+                            <option value="9">3</option>
+                            <option value="10">4</option>
+                            <option value="11">5</option>
+                        </select></p>
+                        <button class="btn btn-primary">enviar</button>
+                    </form>
+                        <button class="btn btn-secondary" onclick="closePopup('portao')">cancelar</button>
+                </dialog>
+                <a class="btn btn-primary"  href="/local/mapa/<%= id %>"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                  </svg>Local
+                </a>
+                <button class="btn btn-primary" value ="<%= id %>" onclick="rota(value)">Criar Rota</button>
+                &nbsp; <button class="btn btn-warning" onclick="openPopup('posicao')"> alterar localidade</button>
+
+                <dialog class="container popup" id="posicao">
+                    <form action="/alterar" method="post">
+                        <input class="form-control" type="hidden" name="id" value="<%= id%>">
+                        <input class="form-control" type="hidden" name="coluna" value="posicao" >
+                        <p><input class="form-control" type="text" name="longitude" id="longitude" placeholder="Longitude"></p>
+                        <p><input class="form-control" type="text" name="latitude" id="latitude" placeholder="Latitude"></p>
+                        <button class="btn btn-primary">enviar</button>
+                    </form>
+                        <button class="btn btn-secondary" onclick="closePopup('posicao')">cancelar</button>
+                </dialog>
+                </dialog>
+            </div>
+        </div>
+        <br>
+        <% if(contatos.length > 0){%>
+            <div class="card">
+                <div class="card-header">
+                    <h2>Contatos </h2>
+                </div>
+                <div class="card-body">
+                    <% contatos.forEach(contato =>{ %>
+                        <% if(contato.Telefone != null){%>
+                            <p>Telefone: <%= contato.Telefone %></p>
+                        <% } %>
+                        <% if(contato.Site != null){%>
+                            <p>Site: <a href="http://<%= contato.Site%>"><%= contato.Site %></a></p>
+                        <% } %>
+                        <% if(contato.Instagran != null){%>
+                            <p>Instagran: <a href="http://www.instagram.com/<%= contato.Instagran %>"><%= contato.Instagran %></a></p>
+                        <% } %>
+                        <% if(contato.Twitter != null){%>
+                            <p>X: <a href="http://twitter.com/<%= contato.Twitter %>"><%= contato.Twitter %></a></p>
+                        <% } %>
+                        <% if(contato.Horario != null){%>
+                            <p>Horario: <%= contato.Horario %></p>
+                        <% } %>
+                        <% if(contato.email != null){%>
+                            <p>Email: <a href="mailto:<%= contato.email %>"><%= contato.email %></a></p>
+                        <% } %>
+                    <% }) %>
+                </div>
+            </div>
+            <br>
+        <% }%>
+        
+        <% if(filhos.length > 0){%>
+            <div class="card">
+                <div class="card-header">
+                    <h2>Localidades Agregadas </h2>
+                </div>
+                <div class="card-body">
+                    <% filhos.forEach(filho =>{ %>
+                        <a href="/local/<%= filho.Id%>"><p><%= filho.Nome %></p></a>
+                        <hr>
+                    <% }) %>
+                </div>
+            </div>
+            <br>
+        <% }%>
+    </div>
+</body>
+<script src="/js/recursos.js"></script>
+<%- include ('./partials/footer.ejs')%>
+</html>

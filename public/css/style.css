@@ -1,0 +1,101 @@
+
+@font-face {
+    font-family: 'title';
+    src: url('fontes/ZenMaruGothic-Medium.ttf');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'titleB';
+    src: url('fontes/ZenMaruGothic-Bold.ttf');
+    font-weight: bold;
+}
+body {
+	padding: 0;
+	margin: 0;
+}
+/*--Modificações gerais*/
+#nav-container{
+    height: 5%;
+}
+#navbar{
+    height: 5%;
+}
+#lupa{
+    margin-right: 2%;
+    background-color: #ddd;
+    border-color: #aad;
+    height: 100%;
+    width: 15%;
+
+}
+.icon{
+    height: 100%;
+    width: 100%;
+}
+.primeiro{
+    margin-top: 20%;
+}
+footer{
+    text-align: center;
+}
+/*Modificações de mapa*/
+#map {
+    position: absolute;
+	height: 100%;
+	width: 100%;
+    z-index: 1;
+    top: 0%;
+}
+#mostrar{
+    display: block;
+   position: absolute;
+   top: 45%;
+   z-index: 2;
+
+}
+#you{
+   display: block;
+   position: absolute;
+   top: 94%;
+   z-index: 2;
+   left: 85%;
+}
+#sidebar{
+    display: none;
+}
+nav a{
+    font-family: 'title',Arial, Helvetica, sans-serif;
+    margin-left: 5vh;
+    color: white;
+    text-decoration: none;
+}
+
+.leaflet-control-container .leaflet-routing-container-hide {
+    display: none;
+}
+div.leaflet-top.leaflet-right{ display: none !important; width: 0px  !important; height: 0px  !important; }
+
+.btn{
+    height: 5%;
+}
+.locais{
+    font-size:2cqb;
+    width: 90%;
+    margin: 10%;
+    text-align: center;
+
+}
+
+
+/*---PAGINA DE Registro---*/
+#Oculto{
+    display: none;
+}
+
+/*pagina de informações do Local*/
+.popup{
+       position: absolute;
+       top: 45%;
+       z-index: 2;
+    
+}

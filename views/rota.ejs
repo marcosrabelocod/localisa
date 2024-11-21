@@ -1,0 +1,39 @@
+<html>
+<!--pagina de exibição do mapa, serve tanto como home como para localizar um ponto expecifico-->
+<head>
+	<!--este techo de codigo é uma parte do head que todos os arquivos ejs(html) compartilam-->
+	<%- include ('./partials/head.ejs')%>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+</head>
+
+<body>
+	<header><%- include ('./partials/nav.ejs')%></header>
+	<section style="display: none;">
+		<!-- aqui importamos as cordenadas e o nome enviado pelo arquivo principal localiza.js-->
+		<div id="lon"><%= lon %></div>
+		<div id="lat"><%=lat%></div>
+		<div id="lugar"><%=lugar%></div>
+		<div id="mylon"><%=mylon%></div>
+		<div id="mylat"><%=mylat%></div>
+		<div id="myname"><%=myname%></div>
+	</section>
+	<div id="map"></div>
+		<button class="btn btn-light" id="you" onclick="myLocal()">
+			<svg xmlns="http://www.w3.org/2000/svg" width="5%" height="5%" fill="currentColor" class="bi bi-compass" viewBox="0 0 16 16">
+				<path d="M8 16.016a7.5 7.5 0 0 0 1.962-14.74A1 1 0 0 0 9 0H7a1 1 0 0 0-.962 1.276A7.5 7.5 0 0 0 8 16.016zm6.5-7.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+				<path d="m6.94 7.44 4.95-2.83-2.83 4.95-4.949 2.83 2.828-4.95z"/>
+		  	</svg>
+		</button>
+   <script src="/js/recursos.js"></script>
+</body>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+crossorigin=""></script>
+<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+<script src="/js/webrota.js">
+</script>
+
+</html>

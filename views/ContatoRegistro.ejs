@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head><%- include ('./partials/head.ejs')%></head>
+<body class="bg-body-tertiary">
+    <!-- Esse recurso se chama partials e permite comolocar trechos de codigo em outros arquivos para evitar tepetir codigos  va na pasta views/partials para auterar-->
+    <header><%- include ('./partials/nav.ejs')%></header>
+    <div class="container">
+    <main>
+        <div class="card primeiro" >
+            <div class="card-header">
+                <h1>Contato</h1>
+            </div>
+            <div class="card-body">
+                <form action="/contatoupload" method="post">
+                    <input type="text" name="idlocal" id="Oculto" value="<%= idlocal %>">
+                       
+                    <div id="Contato">
+                        <input type="text" name="telefone" class="form-control" placeholder="telefone"><br>
+                        <input type="text" name="site" class="form-control" placeholder="site"><br>
+                        <input type="text" name="email" class="form-control" placeholder="email"><br>
+                        <input type="text" name="twitter" class="form-control" placeholder="twitter"><br>
+                        <input type="text" name="instagran" class="form-control" placeholder="instagran"><br>
+                        Horario
+                        <div class="row">
+                            <div class="col-md-5">
+                                <input type="text" name="inicio" class="form-control" placeholder="Abre">
+                            </div>
+                            <div class="col-md-1" style="text-align: center;">a</div>
+                            <div class="col-md-5">
+                                <input type="text" name="fim" class="form-control" placeholder="Fecha"><br><br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary">enviar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        Marcos Rabelo|2023
+    </footer>
+    </div>
+</body>
+<%- include ('./partials/footer.ejs')%>
+</html>

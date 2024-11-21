@@ -1,0 +1,64 @@
+
+<html>
+<!--pagina de exibição do mapa, serve tanto como home como para localizar um ponto expecifico-->
+<head>
+	<!--este techo de codigo é uma parte do head que todos os arquivos ejs(html) compartilam-->
+	<%- include ('./partials/head.ejs')%>
+	<link rel="stylesheet" href="/css/leaflet.css">
+</head>
+
+<body>
+		<header><%- include ('./partials/nav.ejs')%></header>
+	<section style="display: none;">
+		<!-- aqui importamos as cordenadas e o nome enviado pelo arquivo principal localiza.js-->
+		<div id="lon">-1.472784</div>
+		<div id="lat">-48.459511</div>
+		<div id="lugar"><%= lugar%></div>
+		<div id="locais">
+			<% dados.forEach(dado =>{ %>
+				<% dado.forEach(cord =>{ %>
+					<%= cord%>,
+				<% }) %>
+				/
+			<% }) %>
+		</div>
+	</section>
+	<div id="map"></div>
+	<!--botão de auto-localização-->
+		<button class="btn btn-light" id="you" onclick="myLocal()">
+			<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-compass icon" viewBox="0 0 16 16">
+				<path d="M8 16.016a7.5 7.5 0 0 0 1.962-14.74A1 1 0 0 0 9 0H7a1 1 0 0 0-.962 1.276A7.5 7.5 0 0 0 8 16.016zm6.5-7.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+				<path d="m6.94 7.44 4.95-2.83-2.83 4.95-4.949 2.83 2.828-4.95z"/>
+		  	</svg>
+		</button>
+		
+		<!--sideBar-->
+		<button class="btn btn-light" id="mostrar" value="sidebar" onclick="abrir(value)">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-right icon" viewBox="0 0 16 16">
+				<path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8Zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5Z"/>
+			  </svg>
+		</button>
+		<section id="sidebar" >
+			<div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+				<div class="offcanvas-header">
+				  <h5 class="offcanvas-title" id="offcanvasLabel">Locais</h5>
+				  <button type="button" class="btn-close"  value="sidebar" onclick="fechar(value)"></button>
+				</div>
+				<div class="offcanvas-body">
+				  		<a href="/local/mapa/10" class="btn btn-secondary locais">Reitoria</a><br>
+				  		<a href="/local/mapa/7" class="btn btn-secondary locais">Biblioteca Central</a><br>
+				  		<a href="/categorias/mapa/Portao" class="btn btn-secondary locais">Saidas</a><br>
+				  		<a href="#" class="btn btn-secondary locais">restaurantes</a>
+					
+				</div>
+			  </div>
+		</section>
+   <script src="/js/recursos.js"></script>
+   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+   crossorigin=""></script>
+   <script src="/js/multMap.js"></script>
+</body>
+
+
+</html>
